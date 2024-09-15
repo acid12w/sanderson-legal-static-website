@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          fontFamily: {
+            'sans': ['Poppins', 'system-ui',],
+            'serif': ['ui-serif', 'Georgia', ],
+            'mono': ['ui-monospace', 'SFMono-Regular', ],
+            'display': ['Oswald', ],
+            'body': ['Poppins'],
+          }
+        }
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+</head>
+<body>
+    <nav id="navBar" class="cursor-pointer flex justify-between z-10 bg-blue-900/[.5] backdrop-blur-md items-center h-16 w-[96%] fixed p-4 m-6 rounded-md "> <!--border-solid border-2 border-white-->
+        <img src="./images/logo-blue.svg" class="h-12 w-12"/>
+        <ul class="flex gap-6 text-white pointer">
+            <li ><a class="text-xl pointer" href="index.html">Home</a></li>
+            <li ><a class="text-xl pointer" href="about.html">About</a></li>
+            <li ><a class="text-xl pointer" href="contact.html">Contact</a></li>
+        </ul>
+        <button class="bg-blue-900 text-sm text-white px-2 py-2 rounded cursor-pointer">Contact us</button>
+    </nav>
+    <section id="profile" class=" flex justify-center gap-20 p-12"> 
+       
+    </section>
+    <div class="flex justify-center p-12 gap-20">
+        <form class="max-w-md ">
+        <h1 id="slide-up" class="font-serif text-left text-[#081329] overflow-hidden font-bold text-4xl mb-20">Dont wait have <br/> your rights enforced</h1>
+        <h3 class="text-lg font-bold mb-2">Send a message</h3>
+        <p class="text-gray-500 mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="grid md:grid-cols-2 md:gap-6">
+          <div class="relative z-0 w-full mb-5 group">
+              <input type="text" name="floating_first_name" id="floating_first_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+              <label for="floating_first_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">First name</label>
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+              <input type="text" name="floating_last_name" id="floating_last_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+              <label for="floating_last_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Last name</label>
+          </div>
+        </div>
+        <div class="relative z-0 w-full mb-5 group">
+            <input type="email" name="floating_email" id="floating_email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="floating_email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email address</label>
+        </div>
+        <div class="relative z-0 w-full mb-5 group">
+            <input type="password" name="floating_password" id="floating_password" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="floating_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Company</label>
+        </div>        
+        <div class="relative z-0 w-full mb-5 group">
+            <textarea type="email" name="floating_email" id="floating_email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required ></textarea>
+            <label for="floating_email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Message</label>
+        </div>
+        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+      </form>
+      <div >
+        <div class="w-32 h-32 mb-8" ></div>
+  
+        <h3 class="font-bold text-lg ">Call us</h3>
+        <p class="text-gray-500 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do </p>
+        <div class="flex mb-6">
+             <div class="flex mr-6">
+            <svg class="mr-2" width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="11.5" cy="11.5" r="11.5" fill="#A7CAFF"/>
+                <g clip-path="url(#clip0_539_524)">
+                <path d="M10.2207 6.48027C10.0703 6.11699 9.67383 5.92363 9.29492 6.02714L7.57617 6.49589C7.23633 6.58964 7 6.89824 7 7.2498C7 12.0818 10.918 15.9998 15.75 15.9998C16.1016 15.9998 16.4102 15.7635 16.5039 15.4236L16.9727 13.7049C17.0762 13.326 16.8828 12.9295 16.5195 12.7791L14.6445 11.9978C14.3262 11.865 13.957 11.9568 13.7402 12.2244L12.9512 13.1873C11.5762 12.5369 10.4629 11.4236 9.8125 10.0486L10.7754 9.26152C11.043 9.04277 11.1348 8.67558 11.002 8.35722L10.2207 6.48222V6.48027Z" fill="#1157DF"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_539_524">
+                <rect width="10" height="10" fill="white" transform="translate(7 6)"/>
+                </clipPath>
+                </defs>
+                </svg>
+                
+            (876) 320-2932
+        </div>
+        <div class="flex">
+            <svg class="mr-2" width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="11.5" cy="11.5" r="11.5" fill="#A7CAFF"/>
+                <g clip-path="url(#clip0_539_524)">
+                <path d="M10.2207 6.48027C10.0703 6.11699 9.67383 5.92363 9.29492 6.02714L7.57617 6.49589C7.23633 6.58964 7 6.89824 7 7.2498C7 12.0818 10.918 15.9998 15.75 15.9998C16.1016 15.9998 16.4102 15.7635 16.5039 15.4236L16.9727 13.7049C17.0762 13.326 16.8828 12.9295 16.5195 12.7791L14.6445 11.9978C14.3262 11.865 13.957 11.9568 13.7402 12.2244L12.9512 13.1873C11.5762 12.5369 10.4629 11.4236 9.8125 10.0486L10.7754 9.26152C11.043 9.04277 11.1348 8.67558 11.002 8.35722L10.2207 6.48222V6.48027Z" fill="#1157DF"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_539_524">
+                <rect width="10" height="10" fill="white" transform="translate(7 6)"/>
+                </clipPath>
+                </defs>
+                </svg>
+                
+            (876) 715-4463
+        </div>
+        </div>
+       
+        <h3 class="font-bold text-lg mb-2">Offices</h3>
+        <div class="flex mb-2">
+            <svg class="mr-2" width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="11.5" cy="11.5" r="11.5" fill="#A7CAFF"/>
+                <g clip-path="url(#clip0_543_530)">
+                <path d="M12.6172 18.65C13.9531 16.8945 17 12.6398 17 10.25C17 7.35156 14.7604 5 12 5C9.23958 5 7 7.35156 7 10.25C7 12.6398 10.0469 16.8945 11.3828 18.65C11.7031 19.0684 12.2969 19.0684 12.6172 18.65ZM12 8.5C12.442 8.5 12.866 8.68437 13.1785 9.01256C13.4911 9.34075 13.6667 9.78587 13.6667 10.25C13.6667 10.7141 13.4911 11.1592 13.1785 11.4874C12.866 11.8156 12.442 12 12 12C11.558 12 11.134 11.8156 10.8215 11.4874C10.5089 11.1592 10.3333 10.7141 10.3333 10.25C10.3333 9.78587 10.5089 9.34075 10.8215 9.01256C11.134 8.68437 11.558 8.5 12 8.5Z" fill="#1157DF"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_543_530">
+                <rect width="10" height="14" fill="white" transform="translate(7 5)"/>
+                </clipPath>
+                </defs>
+            </svg>
+            <p class="text-gray-500">Shop # 24 new Plaza, (Bayshore Plaza) Boundbrook</p>
+            
+        </div>
+        
+        <div class="flex mb-8">
+            <svg class="mr-2" width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="11.5" cy="11.5" r="11.5" fill="#A7CAFF"/>
+                <g clip-path="url(#clip0_543_530)">
+                <path d="M12.6172 18.65C13.9531 16.8945 17 12.6398 17 10.25C17 7.35156 14.7604 5 12 5C9.23958 5 7 7.35156 7 10.25C7 12.6398 10.0469 16.8945 11.3828 18.65C11.7031 19.0684 12.2969 19.0684 12.6172 18.65ZM12 8.5C12.442 8.5 12.866 8.68437 13.1785 9.01256C13.4911 9.34075 13.6667 9.78587 13.6667 10.25C13.6667 10.7141 13.4911 11.1592 13.1785 11.4874C12.866 11.8156 12.442 12 12 12C11.558 12 11.134 11.8156 10.8215 11.4874C10.5089 11.1592 10.3333 10.7141 10.3333 10.25C10.3333 9.78587 10.5089 9.34075 10.8215 9.01256C11.134 8.68437 11.558 8.5 12 8.5Z" fill="#1157DF"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_543_530">
+                <rect width="10" height="14" fill="white" transform="translate(7 5)"/>
+                </clipPath>
+                </defs>
+            </svg>
+            <p class="text-gray-500">Kingston office comming soon</p>
+        </div>
+
+     
+
+        <h3 class="font-bold text-lg mb-2">Email</h3>
+        <div class="flex mb-8">
+            <svg class="mr-2" width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="11.5" cy="11.5" r="11.5" fill="#A7CAFF"/>
+                <path d="M7.84375 8.125C7.37793 8.125 7 8.50293 7 8.96875C7 9.23418 7.1248 9.48379 7.3375 9.64375L11.1625 12.5125C11.3629 12.6619 11.6371 12.6619 11.8375 12.5125L15.6625 9.64375C15.8752 9.48379 16 9.23418 16 8.96875C16 8.50293 15.6221 8.125 15.1562 8.125H7.84375ZM7 10.0938V13.75C7 14.3705 7.50449 14.875 8.125 14.875H14.875C15.4955 14.875 16 14.3705 16 13.75V10.0938L12.175 12.9625C11.7742 13.2631 11.2258 13.2631 10.825 12.9625L7 10.0938Z" fill="#1157DF"/>
+            </svg>
+                
+            <p class="text-gray-500">Sacia@email.com</p>
+        </div>
+
+      </div>
+    </div>
+    <div class="flex gap-14 p-10">
+        <div class="w-1/2 h-[30rem] rounded-xl overflow-hidden"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/">gps vehicle tracker</a></iframe></div>
+        <div class="w-1/2 h-[30rem] rounded-xl overflow-hidden"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/">gps vehicle tracker</a></iframe></div>
+    </div>
+
+    <footer class="bg-[#081329]">
+        <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+            <div class="sm:flex sm:items-center sm:justify-between">
+              <div class="flex flex-col items-center justify-center">
+                <svg  class="w-20"  viewBox="0 0 49 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M46.1785 39.2548L31.9709 0.0922763L31.9358 0H30.2118L26.8917 9.14283L23.3386 18.954L20.462 26.8723L16.1696 38.7012L15.9691 39.2548L15.5356 40.4444H20.0184C21.4702 40.4448 22.9079 40.1604 24.2492 39.6075C25.5905 39.0546 26.8092 38.2441 27.8356 37.2222C28.8621 36.2004 29.6762 34.9872 30.2314 33.6521C30.7865 32.317 31.072 30.8861 31.0713 29.4411C31.0713 29.1394 31.0588 28.8426 31.0362 28.5483C30.8782 26.6524 30.2304 24.8294 29.1556 23.2562C28.0808 21.6831 26.6155 20.4133 24.9021 19.5701L27.7838 11.6218L37.8118 39.2573H33.4643V40.4469H49V39.2548H46.1785ZM26.2928 33.0199C26.2928 36.4691 23.083 39.2548 19.1214 39.2548C18.6759 39.2578 18.2309 39.2244 17.7908 39.1551L21.6346 28.5558L22.0506 27.4584C22.023 27.3936 21.993 27.3312 21.9629 27.2689L22.1007 27.3213C22.8471 27.6153 23.5397 28.0298 24.1504 28.5483C24.812 29.0922 25.3464 29.7732 25.7164 30.5438C26.0864 31.3143 26.2831 32.156 26.2928 33.01V33.0199Z" fill="white"/>
+                <path d="M24.832 -0.000239497L24.2006 1.74553L24.0151 2.24432C21.6576 0.762417 18.9229 -0.0164768 16.1345 -0.000239497C15.6334 -0.000239497 15.1381 0.0238687 14.6486 0.0720851C7.76783 0.747947 2.39049 6.0476 2.39049 12.4895C2.39049 16.1182 4.0944 19.3853 6.81314 21.6672C7.74861 22.4518 8.78512 23.1085 9.89522 23.62C10.0857 23.7098 10.2811 23.7971 10.4791 23.8694C11.1109 24.1292 11.7608 24.3434 12.4235 24.5103L15.6184 25.3882L14.6161 28.1316L14.4707 28.5306L12.2281 34.7181L11.5716 36.5237L11.0704 37.9153C7.82797 36.798 5.52519 33.9175 5.52519 30.5233C5.52452 29.8558 5.61472 29.1914 5.7933 28.548H4.31491L0 40.4442H1.29798C1.49071 39.9483 1.84319 39.5299 2.30028 39.2546C2.95275 38.8519 3.70765 38.6442 4.47528 38.656C4.83595 38.6549 5.19537 38.6985 5.54523 38.7857L11.9524 40.4417L12.7142 38.3368L12.8921 37.8505L16.7936 27.0991L17.2496 25.8521L17.5879 24.9218L18.089 23.5128L19.9257 18.4475L19.9408 18.4076L26.6261 -0.000239497H24.832ZM18.3171 17.9562C16.5324 17.4417 14.776 16.8349 13.055 16.1381C12.6889 16.012 12.3322 15.8603 11.9875 15.6842H11.9524C11.0769 15.2459 10.2875 14.6546 9.62209 13.9385C8.43922 12.6908 7.77647 11.0426 7.76783 9.32715C7.76783 5.98525 10.3387 3.15212 13.8468 2.27923C14.595 2.09239 15.3632 1.99692 16.1345 1.99492C18.9635 1.99492 21.4643 3.2419 22.9778 5.11237L18.3171 17.9562Z" fill="white"/>
+                </svg>
+                <p class="font-serif text-white text-base overflow-hidden block"><span class="block">Sacia Anderson-Cousins</span></p>
+                <p class="text-white text-sm mb-10 overflow-hidden block"><span class="block">Attormey-At-Law</span></p>
+              </div>
+                
+              
+                <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-white sm:mb-0 ">
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">About</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:underline">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+            <span class="block text-sm text-white sm:text-center">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.</span>
+        </div>
+    </footer>
+</body>
+</html>
