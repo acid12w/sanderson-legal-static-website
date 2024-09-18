@@ -10,23 +10,29 @@ gsap.ticker.add((time)=>{
   lenis.raf(time * 1000)
 })
 
+gsap.registerPlugin(ScrollTrigger);
+
+/********* Practice Areas *********/
 
 const menu = document.querySelector("#toggleMenu");
 const menus = document.querySelectorAll(".menu");
 const tabButton = document.querySelectorAll("#tab-btn")
 
-gsap.registerPlugin(ScrollTrigger);
-
+// select-user
+// will-change
 
 menu.addEventListener('click', function(e){
     const currentTabId = e.target.closest("li").dataset.menuId;
   
     if(!currentTabId) return
- 
-        document.querySelector(`.tab--${currentTabId}`).classList.remove("hidden");
+        const currentTab = document.querySelector(`.tab--${currentTabId}`);
+        const imageBox = currentTab.lastElementChild;
+
+     
+        // document.querySelector(`.tab--${currentTabId}`).classList.remove("hidden");
         const button = e.target.closest("li");
         button.classList.add("btn-active");
-        const currentTab = document.querySelector(`.tab--${currentTabId}`);
+        
 
        tabButton.forEach(el => {
             if(el !== button) {
@@ -36,10 +42,22 @@ menu.addEventListener('click', function(e){
 
   
     menus.forEach(tab => {
-        if(tab !== currentTab){
-            tab.classList.add("hidden")
+     
+        if(tab === currentTab){
+            if(!tab.classList.contains('hidden')){
+                return
+            } else {
+                console.log("animate");
+                tab.classList.remove('hidden') 
+                gsap.from(tab, {
+                    opacity: 0, 
+                    scale: 0.95,
+                    duration: 1
+                })
+            }
+        } else {
+            tab.classList.add('hidden');
         }
-       
     })
 })
 
@@ -150,22 +168,37 @@ const accordionHeaders = document.querySelectorAll('#accordion-header');
 
 accordionHeaders.forEach(header => {
 
-    header.classList.add("text-gray-500");
-
-    header.addEventListener('click', () => {
+    header.addEventListener('click', (e) => {
     const content = header.nextElementSibling;
+    const arrow = header.previousElementSibling;
+    const arrowActive = ["rotate-[-145deg]", "fill-blue-600"]
 
-    header.classList.add("text-blue");
 
     // Close all accordion items except the one being clicked
     document.querySelectorAll('#accordion-content').forEach(item => {
       if (item !== content) {
-        item.style.height = "0";     
+        item.classList.add("grid-rows-[0fr]");
+        item.classList.remove("acc_active");
       }  
     });
 
+    document.querySelectorAll('#accordion-icon').forEach(item => {
+        if (item !== content) {
+          item.classList.remove(...arrowActive);
+        }      
+    });
+
+    document.querySelectorAll('#accordion-header').forEach(item => {
+        if (item !== content) {
+          item.classList.remove("text-blue-600");
+        }      
+    });
+
     // Toggle the clicked accordion item
-    content.style.height = content.style.height === '100%' ? '0' : '100%';  
+    content.classList.remove("grid-rows-[0fr]");  
+    content.classList.add("acc_active");  
+    arrow.classList.add(...arrowActive);
+    header.classList.add("text-blue-600")
   });
 });
 
