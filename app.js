@@ -72,14 +72,14 @@ const prgressbar = document.querySelector(".prgressBar");
 prgressbar.style.width = "0";
 
 let width = 0;
-    // var interval = setInterval(function() {
-    //     width++
-    //     prgressbar.style.width = width + "%";
+    var interval = setInterval(function() {
+        width++
+        prgressbar.style.width = width + "%";
 
-    //     if (width >= 100) {
-    //     clearInterval(interval);
-    //     }
-    // }, 15);
+        if (width >= 100) {
+        clearInterval(interval);
+        }
+    }, 15);
     
     
 const preloaderTexts = document.querySelectorAll("#preloaderText span");
