@@ -171,7 +171,7 @@ accordionHeaders.forEach(header => {
     header.addEventListener('click', (e) => {
     const content = header.nextElementSibling;
     const arrow = header.previousElementSibling;
-    const arrowActive = ["rotate-[-145deg]", "fill-blue-600"]
+    const arrowActive = ["rotate-[-180deg]", "fill-blue-600"]
 
 
     // Close all accordion items except the one being clicked
@@ -179,6 +179,7 @@ accordionHeaders.forEach(header => {
       if (item !== content) {
         item.classList.add("grid-rows-[0fr]");
         item.classList.remove("acc_active");
+        header.classList.add("text-gray-700")
       }  
     });
 
@@ -198,6 +199,7 @@ accordionHeaders.forEach(header => {
     content.classList.remove("grid-rows-[0fr]");  
     content.classList.add("acc_active");  
     arrow.classList.add(...arrowActive);
+    header.classList.remove("text-gray-700")
     header.classList.add("text-blue-600")
   });
 });
