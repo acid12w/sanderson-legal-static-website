@@ -171,7 +171,7 @@ accordionHeaders.forEach(header => {
     header.addEventListener('click', (e) => {
     const content = header.nextElementSibling;
     const arrow = header.previousElementSibling;
-    const arrowActive = ["rotate-[-180deg]", "fill-blue-600"]
+    const arrowActive = ["rotate-[-180deg]", "fill-white", "bg-blue-600"]
 
 
     // Close all accordion items except the one being clicked
