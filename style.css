@@ -68,7 +68,6 @@
     object-fit: cover;
   }
 
-
    .acc_active {
     grid-template-rows: 1fr;
    }

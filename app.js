@@ -165,13 +165,48 @@ gsap.to(revealTextupChar, {
 /********* WHY CHOOSE US *********/
 
 const accordionHeaders = document.querySelectorAll('#accordion-header');
+const arrows = document.querySelectorAll('#accordion-icon');
+
+arrows.forEach(arrow => {
+
+    const arrowActive = ["rotate-[-180deg]",'fill-blue-600' ]
+    
+    arrow.addEventListener('click',(e)=> {
+        console.log("click")
+        const container = arrow.parentNode;
+        const content = container.lastElementChild;
+        const header =  arrow.nextElementSibling;
+        // Close all accordion items except the one being clicked
+        document.querySelectorAll('#accordion-icon').forEach(item => {
+
+            if (item !== content) {
+              item.classList.remove(...arrowActive);
+            }      
+        });
+         // Close all accordion items except the one being clicked
+        document.querySelectorAll('#accordion-content').forEach(item => {
+        if (item !== content) {
+          item.classList.add("grid-rows-[0fr]", 'fill-blue-600');
+          item.classList.remove("acc_active");
+          item.previousElementSibling.classList.remove("text-blue-600")
+        }  
+      });
+        content.classList.remove("grid-rows-[0fr]");  
+        content.classList.add("acc_active");  
+        arrow.classList.add(...arrowActive);
+        arrow.nextElementSibling.classList.remove("text-gray-700")
+        arrow.nextElementSibling.classList.add("text-blue-600")
+    })
+})
 
 accordionHeaders.forEach(header => {
 
     header.addEventListener('click', (e) => {
     const content = header.nextElementSibling;
     const arrow = header.previousElementSibling;
-    const arrowActive = ["rotate-[-180deg]", "fill-white", "bg-blue-600"]
+    const arrowActive = ["rotate-[-180deg]", 'fill-blue-600' ]
+
+    
 
 
     // Close all accordion items except the one being clicked
@@ -183,7 +218,10 @@ accordionHeaders.forEach(header => {
       }  
     });
 
+
+
     document.querySelectorAll('#accordion-icon').forEach(item => {
+
         if (item !== content) {
           item.classList.remove(...arrowActive);
         }      
