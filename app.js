@@ -243,3 +243,70 @@ accordionHeaders.forEach(header => {
 });
 
 
+const options = {
+    root: document.querySelector("#btn-01"),
+    rootMargin: "0px",
+    threshold: 1.0,
+  };
+
+  const tabButtonMobile = document.querySelectorAll("#tab-btn-m")
+  const menusMobile = document.querySelectorAll(".menu-m");
+
+  const intersectionCallback = (entries) => {
+
+    entries.forEach((entry) => {
+    
+
+        if( !entry.isIntersecting ) {
+            return;
+          } 
+          console.log(entry)
+  
+        const currentTab = document.querySelector(`.tab--${entry.target.dataset.menuId}`);
+       
+
+    
+        const button = entry.target;
+        button.classList.add("btn-active");
+        
+
+        tabButtonMobile.forEach(el => {
+            if(el !== button) {
+               console.log(el , button)
+                el.classList.remove("btn-active");
+            }
+        });
+
+        menus.forEach(tab => {
+        
+                if(tab === currentTab){
+                    if(!tab.classList.contains('hidden')){
+                        return
+                    } else {
+                        console.log("animate");
+                        tab.classList.remove('hidden') 
+                        gsap.from(tab, {
+                            opacity: 0, 
+                            scale: 0.95,
+                            duration: 1
+                        })
+                    }
+                } else {
+                    tab.classList.add('hidden');
+                }
+        })
+
+        
+    })
+
+  };
+  
+  const observer = new IntersectionObserver(intersectionCallback, options);
+
+const target = document.querySelectorAll("#tab-btn-m");
+
+
+target.forEach(btn => {
+    observer.observe(btn);
+})
+
