@@ -47,7 +47,7 @@ menu.addEventListener('click', function(e){
             if(!tab.classList.contains('hidden')){
                 return
             } else {
-                console.log("animate");
+               
                 tab.classList.remove('hidden') 
                 gsap.from(tab, {
                     opacity: 0, 
@@ -172,7 +172,7 @@ arrows.forEach(arrow => {
     const arrowActive = ["rotate-[-180deg]",'fill-blue-600' ]
     
     arrow.addEventListener('click',(e)=> {
-        console.log("click")
+     
         const container = arrow.parentNode;
         const content = container.lastElementChild;
         const header =  arrow.nextElementSibling;
@@ -260,7 +260,6 @@ const options = {
         if( !entry.isIntersecting ) {
             return;
           } 
-          console.log(entry)
   
         const currentTab = document.querySelector(`.tab--${entry.target.dataset.menuId}`);
        
@@ -272,7 +271,7 @@ const options = {
 
         tabButtonMobile.forEach(el => {
             if(el !== button) {
-               console.log(el , button)
+            
                 el.classList.remove("btn-active");
             }
         });
@@ -283,7 +282,7 @@ const options = {
                     if(!tab.classList.contains('hidden')){
                         return
                     } else {
-                        console.log("animate");
+                     
                         tab.classList.remove('hidden') 
                         gsap.from(tab, {
                             opacity: 0, 
