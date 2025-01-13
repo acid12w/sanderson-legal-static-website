@@ -12,6 +12,23 @@ gsap.ticker.add((time)=>{
 
 gsap.registerPlugin(ScrollTrigger);
 
+
+window.addEventListener("load", (event) => {
+   
+    let counter = Number(localStorage.getItem("loadStatus"));
+
+    if(counter < 10 && counter >= 1) {
+        counter = counter + 1;
+        summariAni();
+        localStorage.setItem("loadStatus", counter);
+    } else {
+        localStorage.setItem("loadStatus", 1);
+        openingAni();
+    }
+
+  });
+
+
 /********* Practice Areas *********/
 
 const menu = document.querySelector("#toggleMenu");
@@ -68,72 +85,131 @@ gsap.to("#text-scroll-infinate",{
     x: 2100,
 })
 
-const prgressbar = document.querySelector(".prgressBar");
-prgressbar.style.width = "0";
+const openingAni = function() {
+    const prgressbar = document.querySelector(".prgressBar");
+    prgressbar.style.width = "0";
 
-let width = 0;
-    var interval = setInterval(function() {
-        width++
-        prgressbar.style.width = width + "%";
+    let width = 0;
+        var interval = setInterval(function() {
+            width++
+            prgressbar.style.width = width + "%";
 
-        if (width >= 100) {
-        clearInterval(interval);
-        }
-    }, 15);
+            if (width >= 100) {
+            clearInterval(interval);
+            }
+        }, 15);
+        
+        
+    const preloaderTexts = document.querySelectorAll("#preloaderText span");
+    const heroContainer = document.querySelectorAll("#hero-container");
+
+    // const myText = new SplitType('#my-text');
+    // let myTextChar = myText.chars
+
+    var tl = gsap.timeline({
+        
+    });
+
+
+    tl.from(preloaderTexts, { yPercent: 80, ease: "power4.inOut"}, 0)
+    tl.to(preloaderTexts, { yPercent: -105, delay: 1, ease: "power4.inOut"}, 1)
+    tl.from("#preloaderLogo", { yPercent: 100, }, 0)
+    tl.to("#preloaderLogo", { yPercent: -105, delay: 1 }, 1)
+    tl.to("#preloaderBar", { height: 0, delay: 1}, 1)
+    tl.to(".preloader", {height: 0, duration: .8, ease: "power4.inOut",}, 2)
+
+    tl.from("#slide-up", { y: 160, duration: .9, ease: "power3.inOut",}, "-=.8");
+    // tl.from("#hero_img", { y: 160, duration:2,ease: "expo.inOut",}, "-=.9") ;
+    // tl.from("#loactionBar", {y: 100, duration: .7, ease: "power4.inOut"}, "-=.6");
+
+
+    tl.from("#navBar", {y: -90}, ">-75%");
+    // tl.to('#my-text', { scale: .8, duration: .8, ease: "power4.inOut" })
+    // tl.to('#my-text', { scale: 1, duration: 1, ease: "power4.out" }, "-=.3")
+
+    // tl.to(myTextChar, {
+    //     y: 0,
+    //     stagger: 0.05,
+    //     delay: 0.2,  
+    //     duration: .1
+    // }, ">-75%");
+    tl.from("#text-reveal", { yPercent: 95, }, ">-75%");
+    tl.from("#heroBtn", {
+        yPercent: 100,
+    }, ">-75%");
+
+
+    const revealTextup = new SplitType('#reveal-text-up');
+    let revealTextupChar = revealTextup.words;
     
+    gsap.to(revealTextupChar, {
+        y: 0,
+        stagger: 0.05 ,
+        duration: 0.2,
+        scrollTrigger: {
+            trigger: '#reveal-text-up',
+            toggleActions: "restart none none none",
+        },
+    });
+}
+
+const summariAni = function() {
+    const prgressbar = document.querySelector(".prgressBar");
+    prgressbar.style.width = "0";
+        
+        
+    const preloaderTexts = document.querySelectorAll("#preloaderText span");
+    const heroContainer = document.querySelectorAll("#hero-container");
+
+    // const myText = new SplitType('#my-text');
+    // let myTextChar = myText.chars
+
+    var tl = gsap.timeline({
+        
+    });
+
+
+
+   
     
-const preloaderTexts = document.querySelectorAll("#preloaderText span");
-const heroContainer = document.querySelectorAll("#hero-container");
+   
 
-// const myText = new SplitType('#my-text');
-// let myTextChar = myText.chars
+    tl.to(".preloader", {height: 0,  duration: .001, }, )
+    tl.from("#preloaderLogo", { opacity: 0, duration: .001}, )
+    tl.from("#slide-up", { y: 160, duration: .9, ease: "power3.inOut",}, "-=.8");
+    // tl.from("#hero_img", { y: 160, duration:2,ease: "expo.inOut",}, "-=.9") ;
+    // tl.from("#loactionBar", {y: 100, duration: .7, ease: "power4.inOut"}, "-=.6");
 
-var tl = gsap.timeline({
+
+    tl.from("#navBar", {y: -90}, ">-75%");
+    // tl.to('#my-text', { scale: .8, duration: .8, ease: "power4.inOut" })
+    // tl.to('#my-text', { scale: 1, duration: 1, ease: "power4.out" }, "-=.3")
+
+    // tl.to(myTextChar, {
+    //     y: 0,
+    //     stagger: 0.05,
+    //     delay: 0.2,  
+    //     duration: .1
+    // }, ">-75%");
+    tl.from("#text-reveal", { yPercent: 95, }, ">-75%");
+    tl.from("#heroBtn", {
+        yPercent: 100,
+    }, ">-75%");
+
+
+    const revealTextup = new SplitType('#reveal-text-up');
+    let revealTextupChar = revealTextup.words;
     
-});
-
-
-tl.from(preloaderTexts, { yPercent: 80, ease: "power4.inOut"}, 0)
-tl.to(preloaderTexts, { yPercent: -105, delay: 1, ease: "power4.inOut"}, 1)
-tl.from("#preloaderLogo", { yPercent: 100, }, 0)
-tl.to("#preloaderLogo", { yPercent: -105, delay: 1 }, 1)
-tl.to("#preloaderBar", { height: 0, delay: 1}, 1)
-tl.to(".preloader", {height: 0, duration: .8, ease: "power4.inOut",}, 2)
-
-tl.from("#slide-up", { y: 160, duration: .9, ease: "power3.inOut",}, "-=.8");
-// tl.from("#hero_img", { y: 160, duration:2,ease: "expo.inOut",}, "-=.9") ;
-// tl.from("#loactionBar", {y: 100, duration: .7, ease: "power4.inOut"}, "-=.6");
-
-
-tl.from("#navBar", {y: -90}, ">-75%");
-// tl.to('#my-text', { scale: .8, duration: .8, ease: "power4.inOut" })
-// tl.to('#my-text', { scale: 1, duration: 1, ease: "power4.out" }, "-=.3")
-
-// tl.to(myTextChar, {
-//     y: 0,
-//     stagger: 0.05,
-//     delay: 0.2,  
-//     duration: .1
-// }, ">-75%");
-tl.from("#text-reveal", { yPercent: 95, }, ">-75%");
-tl.from("#heroBtn", {
-    yPercent: 100,
-}, ">-75%");
-
-
-const revealTextup = new SplitType('#reveal-text-up');
-let revealTextupChar = revealTextup.words;
-  
-gsap.to(revealTextupChar, {
-    y: 0,
-    stagger: 0.05 ,
-    duration: 0.2,
-    scrollTrigger: {
-        trigger: '#reveal-text-up',
-        toggleActions: "restart none none none",
-    },
-});
-
+    gsap.to(revealTextupChar, {
+        y: 0,
+        stagger: 0.05 ,
+        duration: 0.2,
+        scrollTrigger: {
+            trigger: '#reveal-text-up',
+            toggleActions: "restart none none none",
+        },
+    });
+}
 
 
 // const revealText = function(){
