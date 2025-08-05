@@ -46,12 +46,12 @@ menu.addEventListener('click', function(e){
         const imageBox = currentTab.lastElementChild;
 
      
-        // document.querySelector(`.tab--${currentTabId}`).classList.remove("hidden");
-        const button = e.target.closest("li");
-        button.classList.add("btn-active");
-        
+    // document.querySelector(`.tab--${currentTabId}`).classList.remove("hidden");
+    const button = e.target.closest("li");
+    button.classList.add("btn-active");
+    
 
-       tabButton.forEach(el => {
+        tabButton.forEach(el => {
             if(el !== button) {
                 el.classList.remove("btn-active");
             }
@@ -281,8 +281,6 @@ accordionHeaders.forEach(header => {
     const content = header.nextElementSibling;
     const arrow = header.previousElementSibling;
     const arrowActive = ["rotate-[-180deg]", 'fill-blue-600' ]
-
-    
 
 
     // Close all accordion items except the one being clicked
