@@ -76,5 +76,10 @@
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
    }
 
+
+   .bg-g {
+    background: #2A7B9B;
+    background: linear-gradient(90deg, #0A3677 0%, #034EB1 50%, #034EB1);
+}
  
   
